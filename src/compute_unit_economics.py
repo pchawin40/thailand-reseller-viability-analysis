@@ -113,6 +113,7 @@ def build_unit_economics_pilot(
         "observed_listing_count",
         "rough_price_headroom_thb_est",
         "rough_price_headroom_pct_est",
+        "early_viability_signal",
         "match_quality",
         "source_reference",
     ]
