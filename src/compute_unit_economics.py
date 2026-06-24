@@ -66,6 +66,21 @@ def compute_supplier_costs(supplier_df: pd.DataFrame) -> pd.DataFrame:
 
     return supplier_df
 
+def classify_rough_headroom(headroom_pct: float) -> str:
+    """
+    Translate rough price headroom into an early viability signal
+
+    Only compare supplier benchmark cost plus shipping against the 
+    lowest observed marketplace delivered price
+    """
+    if headroom_pct >= 0.30:
+        return "early_positive_signal"
+    
+    if headroom_pct >= 0:
+        return "thin_headroom"
+    
+    return "negative_headroom"
+
 def build_unit_economics_pilot(
     marketplace_df: pd.DataFrame,
     supplier_df: pd.DataFrame,
@@ -136,21 +151,6 @@ def export_unit_economics_pilot(output_path: Path = OUTPUT_PATH) -> None:
     output_df.to_csv(output_path, index=False)
 
     print(f"Exported pilot unit economics to {output_path}")
-
-def classify_rough_headroom(headroom_pct: float) -> str:
-    """
-    Translate rough price headroom into an early viability signal
-
-    Only compare supplier benchmark cost plus shipping against the 
-    lowest observed marketplace delivered price
-    """
-    if headroom_pct >= 0.30:
-        return "early_positive_signal"
-    
-    if headroom_pct >= 0:
-        return "thin_headroom"
-    
-    return "negative_headroom"
 
 if __name__ == "__main__":
     export_unit_economics_pilot()
