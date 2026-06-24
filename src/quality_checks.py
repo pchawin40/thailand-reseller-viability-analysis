@@ -111,6 +111,35 @@ def check_marketplace_observations_quality(path: Path = MARKETPLACE_PATH) -> Non
     
     print("PASSED: Marketplace observation quality checks passed")
 
+def check_product_relationships(
+    marketplace_path: Path = MARKETPLACE_PATH,
+    supplier_path: Path = SUPPLIER_PATH
+) -> None:
+    marketplace_df = pd.read_csv(marketplace_path)
+    supplier_df = pd.read_csv(supplier_path)
+
+    marketplace_products = set(marketplace_df["product_id"].dropna())
+    supplier_products = set(supplier_df["product_id"].dropna())
+
+    supplier_without_marketplace = supplier_products - marketplace_products
+    marketplace_without_supplier = marketplace_products - supplier_products
+
+    if supplier_without_marketplace:
+        raise ValueError(
+            "FAILED: Supplier benchmark has product_id values not found in marketplace observations: "
+            f"{sorted(supplier_without_marketplace)}"
+        )
+        
+    if marketplace_without_supplier:
+        raise ValueError(
+            "FAILED: Marketplace observations have product_id values without supplier benchmarks: "
+            f"{sorted(marketplace_without_supplier)}"
+        )
+        
+    print("PASSED: Product relationship checks passed")
+
+
 if __name__ == "__main__":
     check_marketplace_observations_quality()
     check_supplier_benchmarks_quality()
+    check_product_relationships()
