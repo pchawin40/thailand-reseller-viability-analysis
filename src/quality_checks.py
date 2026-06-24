@@ -2,9 +2,12 @@ from pathlib import Path
 
 import pandas as pd
 
+# Input file locations used by the validation checks
 MARKETPLACE_PATH = Path("data/observations/marketplace_observations.csv")
 SUPPLIER_PATH = Path("data/observations/supplier_cost_benchmarks.csv")
 
+
+# Required columns for manually collected Shopee marketplace observations
 REQUIRED_MARKETPLACE_COLUMNS = {
     "observation_id",
     "observation_date",
@@ -26,6 +29,7 @@ REQUIRED_MARKETPLACE_COLUMNS = {
     "source_reference"   
 }
 
+# Required columns for public supplier benchmark observations
 REQUIRED_SUPPLIER_COLUMNS = {
     "observation_date",
     "product_id",
@@ -47,12 +51,18 @@ REQUIRED_SUPPLIER_COLUMNS = {
 }
 
 def check_required_columns(df: pd.DataFrame, required_columns: set[str], file_name: str) -> None:
+    """
+    Confirm that an input file contains every column needed by the model
+    """
     missing_columns = required_columns - set(df.columns)
 
     if missing_columns:
             raise ValueError(f"FAILED: {file_name} is missing columns: {sorted(missing_columns)}")
 
 def check_supplier_benchmarks_quality(path: Path = SUPPLIER_PATH) -> None:
+    """
+    Validate supplier benchmark data before it is used in unit-economics callculations
+    """
     if not path.exists():
         raise FileNotFoundError(f"FAILED: Supplier benchmark file not found: {path}")
     
@@ -78,6 +88,9 @@ def check_supplier_benchmarks_quality(path: Path = SUPPLIER_PATH) -> None:
     print("PASSED: Supplier benchmark quality checks passed")
 
 def check_marketplace_observations_quality(path: Path = MARKETPLACE_PATH) -> None:
+    """
+    Validate manually collected marketplace observations
+    """
     if not path.exists():
         raise FileNotFoundError(f"FAILED: Marketplace observation file not found: {path}")
     
@@ -115,6 +128,9 @@ def check_product_relationships(
     marketplace_path: Path = MARKETPLACE_PATH,
     supplier_path: Path = SUPPLIER_PATH
 ) -> None:
+    """
+    Confirm that marketplace observations and supplier benchmarks refer to the same products
+    """
     marketplace_df = pd.read_csv(marketplace_path)
     supplier_df = pd.read_csv(supplier_path)
 
