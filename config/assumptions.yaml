@@ -21,6 +21,10 @@ import_costs:
     value: null
     source: null
     effective_date: null
+  duty_rate_assumption:
+    value: null
+    source: null
+    effective_date: null
     classification_confidence: null
 
 operations:
