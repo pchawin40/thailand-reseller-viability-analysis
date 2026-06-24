@@ -1,3 +1,3 @@
-"observation_date,product_id,supplier_platform,supplier_country,source_currency,unit_price_low,unit_price_high,selected_unit_price,minimum_order_quantity,assumed_order_quantity,origin_shipping_cost,international_shipping_thb,estimated_unit_weight_kg,fx_rate_to_thb,fx_source,match_quality,source_reference"
-"2026-06-23,p001,alibaba,China,USD,6.59,8.50,8.50,2,2,,4.22,4.00,35.00,manual_placeholder,high,alibaba_p001_30l_foldable_organizer"
-"2026-06-23,p002,alibaba,China,USD,4.65,5.50,5.50,10,10,,0,0.288,35.00,manual_placeholder,high,alibaba_p002_yicosun_foldable_laptop_stand"
+observation_date,product_id,supplier_platform,supplier_country,source_currency,unit_price_low,unit_price_high,selected_unit_price,minimum_order_quantity,assumed_order_quantity,origin_shipping_cost,international_shipping_thb,estimated_unit_weight_kg,fx_rate_to_thb,fx_source,match_quality,source_reference
+2026-06-23,p001,alibaba,China,USD,6.59,8.50,8.50,2,2,,4.22,4.00,35.00,manual_placeholder,high,alibaba_p001_30l_foldable_organizer
+2026-06-23,p002,alibaba,China,USD,4.65,5.50,5.50,10,10,,0,0.288,35.00,manual_placeholder,high,alibaba_p002_yicosun_foldable_laptop_stand
