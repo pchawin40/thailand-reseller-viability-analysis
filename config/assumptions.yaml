@@ -1,0 +1,36 @@
+project:
+  reporting_currency: THB
+  target_contribution_margin_pct: null
+  last_updated: null
+
+marketplace:
+  shopee_th:
+    commission_rate:
+      value: null
+      source: null
+      effective_date: null
+      confidence: null
+    transaction_fee_rate:
+      value: null
+      source: null
+      effective_date: null
+      confidence: null
+
+import_costs:
+  vat_rate:
+    value: null
+    source: null
+    effective_date: null
+    classification_confidence: null
+
+operations:
+  packaging_cost_thb: null
+  domestic_fulfillment_cost_thb: null
+  advertising_cost_pct: null
+  return_rate: null
+  cost_per_return_thb: null
+
+scenarios:
+  pessimistic: {}
+  base: {}
+  optimistic: {}
