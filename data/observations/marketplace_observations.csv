@@ -1,1 +1,5 @@
 "observation_id,observation_date,product_id,product_name,category,platform,seller_type,ship_from_country,listed_price_thb,shipping_fee_thb,total_delivered_price_thb,estimated_delivery_days,rating,review_count,units_sold_displayed,promotion_flag,match_quality,source_reference"
+"obs_001,2026-06-23,p002,adjustable aluminum laptop stand,tech_accessories,shopee_th,local,Thailand,166,0,166,1,4.4,3300,10000,true,medium,product_two_pdf"
+"obs_002,2026-06-23,p002,orico adjustable laptop stand,tech_accessories,shopee_th,unknown,unknown,537,0,537,7,5.0,2,3,true,medium,product_two_alt_pdf"
+"obs_003,2026-06-23,p001,foldable camping storage box,camping_storage,shopee_th,unknown,unknown,734,0,734,8,,0,0,false,medium,product_one_pdf"
+"obs_004,2026-06-23,p001,foldable camping storage box with wooden lid,camping_storage,shopee_th,unknown,unknown,?,?,?,?,?,?,?,?,medium,shopee_p001_listing_2"
